@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculate days</title>
+	<style type="text/css">
+		body{
+			text-align:center;
+			background-color: lightgray;
+		}
+		input{
+			position:relative ;
+			
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+<h1>How many Days have you been on Earth?  Find Out ....</h1>
+<div class='wrapper'>
+<div >
+Date of birth : <input type="text" name="date"><br>
+Month :         <input type="text" name="month"><br>
+Year :          <input type="text" name="year"><br>
+</div>
+</div>
+<button id="button">FIND OUT</button>
+<button id="clear">CLEAR</button>
+
+<h3>No. of days you survived on Earth</h3>
+<h1 id="result"></h1>
+
+<script type="text/javascript">
+
+
+
+document.getElementById('button').onclick=function(){
+	var date=Number(document.getElementsByTagName('input')[0].value);
+	var month=Number(document.getElementsByTagName('input')[1].value);
+	var year=Number(document.getElementsByTagName('input')[2].value);
+	if(date==''||month==''||year==''){
+		alert('One or more input is empty');
+	}
+	else{
+	var today = new Date();
+	var birth = new Date(year,month-1,date);
+
+	var diff = today.getTime()-birth.getTime();
+	var result= diff/86400000;
+	if(result=='NaN'){
+	document.getElementById('result').innerHTML='Who you kiddin\'';
+}
+else{
+	document.getElementById('result').innerHTML=Math.round(result);
+}
+}
+};
+document.getElementById('clear').onclick=function(){
+	document.getElementsByTagName('input')[0].value='';
+	document.getElementsByTagName('input')[1].value='';
+	document.getElementsByTagName('input')[2].value='';
+	document.getElementById('result').innerHTML='';
+}
+</script>
+</body>
+</html>

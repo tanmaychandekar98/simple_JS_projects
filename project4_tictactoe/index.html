@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Classic TIC TAC</title>
+	<style type="text/css">
+		#maintable:hover{
+			cursor: hand;
+			cursor: pointer;
+		}
+		td{
+			width: 100px;
+			height: 100px;
+			
+		}
+		#a{
+			
+		}
+	</style>
+
+</head>
+<body align='center' bgcolor="lightgray">
+<h1>Play the classic Tic Tac Toe game !!</h1>
+<h3>Select your marker</h3>
+<p>Input X or O</p>
+<input id="mark" type="text">
+<br>
+<button id="start">Start</button>
+<br><br>
+<table border="2" align="center" id="maintable">
+	
+		<tr >
+		<td  id="a">1</td>
+		<td id="b" >2</td>
+		<td id="c" >3</td>  
+		</tr>
+		<tr>
+		<td id="d" >4</td>
+		<td id="e" >5</td>
+		<td id="f" >6</td>  
+		</tr>
+		<tr>
+		<td id="g" >7</td>
+		<td id="h" >8</td>
+		<td id="i" >9</td>  
+		</tr>
+	
+</table>
+<br>
+<br>
+<form><input type=button value="Reload" onClick="history.go()"></form> 
+
+<script type="text/javascript">
+	var a=document.getElementById('a');
+	var b=document.getElementById('b');
+	var c=document.getElementById('c');
+	var d=document.getElementById('d');
+	var e=document.getElementById('e');
+	var f=document.getElementById('f');
+	var g=document.getElementById('g');
+	var h=document.getElementById('h');
+	var i=document.getElementById('i');
+
+	document.getElementById('start').onclick=function(){
+	var mark=document.getElementById('mark').value;
+	if(mark=='X'){
+		var pc='O';
+	}
+
+	else if (mark=='O') {
+		var pc='X';
+	}
+	else{
+		alert("Please input 'X' or 'O'");
+		window.location.reload();
+	}
+
+	a.onclick=function(){
+		change(a,mark,pc);
+	};
+	b.onclick=function(){
+		change(b,mark,pc);
+	};
+	c.onclick=function(){
+		change(c,mark,pc);
+	};
+	d.onclick=function(){
+		change(d,mark,pc);
+	};
+	e.onclick=function(){
+		change(e,mark,pc);
+	};
+	f.onclick=function(){
+		change(f,mark,pc);
+	};
+	g.onclick=function(){
+		change(g,mark,pc);
+	};
+	h.onclick=function(){
+		change(h,mark,pc);
+	};
+	i.onclick=function(){
+		change(i,mark,pc);
+	};
+
+
+};
+
+	function change(x,mark,pc){
+		x.innerHTML=mark;
+		var random=Math.floor(Math.random() * (9)) + 1;
+		console.log(random);
+	}
+</script>
+</body>
+</html>
