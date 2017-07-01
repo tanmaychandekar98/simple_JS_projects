@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CALCULATOR</title>
+	<style type="text/css">
+		*{
+		/*border: 0.2px solid black;*/
+		margin: 0px;
+		}
+		#main{
+			position: relative;
+			top: 200px;
+			margin: auto;
+			border:1px solid black;
+    		width: 260px;
+    
+
+		}
+		#opr h3,#nos h3{
+			background-color: #F6EF9E;
+			width: 60px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+		}
+		#nos h3{
+			background-color: white;
+		}
+		h3:hover,#equal:hover{
+			cursor: pointer;
+			background-color: white;
+		}
+		
+		#nos,#opr,#a,#b,#c{
+			display: inline-block;
+		}
+		#display{
+			background-color: #EFF58D;
+			text-align: right;
+			height: 70px;
+			overflow: hidden;
+
+		}
+		#equal,#zero{
+			float: right;
+			width: 97px;
+			height: 100px;
+			background-color: white;
+			text-align: center;
+			vertical-align: middle;
+			position: relative;
+			bottom: 100px;
+			line-height: 100px;
+			margin: 1px;
+		}
+		#nos{
+			position: relative;
+			bottom: 100px;
+		}
+		/*#foot{
+			width: 200px;
+			height: 100px;
+		}*/
+	</style>
+</head>
+<body bgcolor="lightgray">
+<h1 align="center">TRY OUT THIS SIMPLE CALCULATOR</h1>
+<h4 align="center">based on pure JS</h4>
+
+<div id="main">
+<div id="display">
+	<h1 id="output"></h1>
+</div>
+<div id="opr">
+	<h3>AC</h3>
+	<h3>/</h3>
+	<h3>*</h3>
+	<h3>+</h3>
+	<h3>-</h3>
+</div>
+<div id="nos">
+	<div id="a"><h3>7</h3><h3>4</h3><h3>1</h3></div>
+	<div id="b"><h3>8</h3><h3>5</h3><h3>2</h3></div>
+	<div id="c"><h3>9</h3><h3>6</h3><h3>3</h3></div>
+</div id="foot">
+<h1 id="equal">=</h1>
+<h3 id="zero">0</h3>	
+</div>
+<br><br>
+<h4>Designed and developed by Tanmay Chandekar</h4>
+
+<script type="text/javascript">
+	var equal=document.getElementById('equal');
+	var input=document.getElementsByTagName('h3');
+	var output=document.getElementById('output');
+	console.log(input[0].innerHTML);
+	function text(){
+		if(this.innerHTML!="AC"){
+		output.innerHTML=output.innerHTML+(this.innerHTML);	}
+		else{
+			output.innerHTML="";
+		}
+	}
+	for (i = 0, len = input.length; i < len; i++){
+    input[i].onclick = text;
+	}
+	equal.onclick=function(){
+		var result=eval(output.innerHTML);
+		output.innerHTML=Number(result);
+	}
+</script>
+</body>
+</html>
